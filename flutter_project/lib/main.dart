@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_screen/telaCadastro.dart'; // Certifique-se de que este caminho esteja correto
+import 'package:login_screen/telaCadastro.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         ),
         drawer: Drawer(
           child: ListView(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top), // Ajuste aqui
+            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
             children: const [
               ListTile(
                 leading: Icon(Icons.message),
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             width: double.infinity,
             fit: BoxFit.fill,
           ),
-          Builder( 
+          Builder(
             builder: (context) => Center(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -78,14 +78,16 @@ class MyApp extends StatelessWidget {
                           children: [
                             const Text(
                               'Não tem conta? ',
-                              style: TextStyle(color: Colors.black, fontSize: 16),
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 16),
                             ),
                             InkWell(
                               onTap: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => CadastroScreen())); // Removido const daqui
+                                        builder: (context) =>
+                                            CadastroScreen()));
                               },
                               child: const Text(
                                 'Cadastrar',
