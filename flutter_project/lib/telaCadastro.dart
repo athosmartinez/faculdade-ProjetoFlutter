@@ -10,12 +10,28 @@ class CadastroScreen extends StatefulWidget {
 class _CadastroScreenState extends State<CadastroScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
+  String _nome = ''; // Variável para armazenar o nome
+  DateTime? _dataNascimento; // Variável para armazenar a data de nascimento
   String _email = '';
   String _senha = '';
   String _genero = 'Masculino';
   bool _notificacaoEmail = false;
   bool _notificacaoCelular = false;
   double _fontSize = 14;
+
+  // Método para selecionar a data de nascimento
+  Future<void> _selecionarData(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(1900),
+        lastDate: DateTime.now());
+    if (picked != null && picked != _dataNascimento) {
+      setState(() {
+        _dataNascimento = picked;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +47,27 @@ class _CadastroScreenState extends State<CadastroScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
+                // Campo Nome
+                TextFormField(
+                  decoration: const InputDecoration(labelText: 'Nome'),
+                  onChanged: (value) => _nome = value,
+                  style: TextStyle(fontSize: _fontSize),
+                ),
+                // Campo Data de Nascimento
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'Data de Nascimento',
+                    suffixIcon: Icon(Icons.calendar_today),
+                  ),
+                  onTap: () => _selecionarData(context),
+                  readOnly: true, // Impede a edição direta do campo
+                  controller: TextEditingController(
+                    text: _dataNascimento != null
+                        ? '${_dataNascimento!.day}/${_dataNascimento!.month}/${_dataNascimento!.year}'
+                        : '',
+                  ),
+                  style: TextStyle(fontSize: _fontSize),
+                ),
                 // Campo E-mail
                 TextFormField(
                   decoration: const InputDecoration(labelText: 'E-mail'),
