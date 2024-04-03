@@ -51,6 +51,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
                 TextFormField(
                   decoration: const InputDecoration(labelText: 'Nome'),
                   onChanged: (value) => _nome = value,
+                  maxLength: 60,
                   style: TextStyle(fontSize: _fontSize),
                 ),
                 // Campo Data de Nascimento
@@ -72,6 +73,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
                 TextFormField(
                   decoration: const InputDecoration(labelText: 'E-mail'),
                   keyboardType: TextInputType.emailAddress,
+                  maxLength: 80,
                   onChanged: (value) => _email = value,
                   style: TextStyle(fontSize: _fontSize),
                 ),
