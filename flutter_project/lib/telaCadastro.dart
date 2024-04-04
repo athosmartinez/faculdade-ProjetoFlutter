@@ -218,25 +218,12 @@ class _CadastroScreenState extends State<CadastroScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Minha conta',
-          ),
-        ],
-      ),
+      
     );
   }
-
   @override
   void dispose() {
-    _telefoneController.dispose(); 
+    _telefoneController.dispose();
     super.dispose();
   }
-
 }
