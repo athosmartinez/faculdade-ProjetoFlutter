@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart'; // Importe o pacote
 
-
 class CadastroScreen extends StatefulWidget {
   const CadastroScreen({Key? key}) : super(key: key);
 
@@ -13,16 +12,16 @@ class CadastroScreen extends StatefulWidget {
 class _CadastroScreenState extends State<CadastroScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
-  String _nome = ''; 
-  DateTime? _dataNascimento; 
+  String _nome = '';
+  DateTime? _dataNascimento;
   String _email = '';
-    String _telefone = ''; 
   String _senha = '';
   String _genero = 'Masculino';
   bool _notificacaoEmail = false;
   bool _notificacaoCelular = false;
   double _fontSize = 14;
-    // Utilize o MaskedTextController para o campo de telefone
+
+  // Utilize o MaskedTextController para o campo de telefone
   var _telefoneController = MaskedTextController(mask: '(00) 00000-0000');
 
   // Método para selecionar a data de nascimento
@@ -61,8 +60,9 @@ class _CadastroScreenState extends State<CadastroScreen> {
                   style: TextStyle(fontSize: _fontSize),
                 ),
                 // Campo Telefone
-                                TextFormField(
-                  controller: _telefoneController, // Usando o controlador com máscara
+                TextFormField(
+                  controller:
+                      _telefoneController, // Usando o controlador com máscara
                   decoration: const InputDecoration(labelText: 'Telefone'),
                   keyboardType: TextInputType.phone,
                   style: TextStyle(fontSize: _fontSize),
@@ -232,9 +232,11 @@ class _CadastroScreenState extends State<CadastroScreen> {
       ),
     );
   }
+
   @override
   void dispose() {
-    _telefoneController.dispose(); // Lembre-se de dispensar o controlador
+    _telefoneController.dispose(); 
     super.dispose();
   }
+
 }
