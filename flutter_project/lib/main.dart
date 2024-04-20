@@ -18,8 +18,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
   final List<String> _titles = [
-    'Logi',
-    ' Conta'
+    'Login',
+    'Minha Conta'
   ]; // Títulos para cada tela
 
   @override
